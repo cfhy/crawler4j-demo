@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author: yyb
  * @create: 2017/10/26.
  */
-public class CrawlerDao {
+public class EnterpriseDao {
     public boolean insert(Instruments instruments) throws SQLException {
         StringBuilder sb = new StringBuilder();
         sb.append("INSERT INTO rtHCProduct([fProductId],[fCompanyId],[fName],[fCode],[fTag],[fArea],");

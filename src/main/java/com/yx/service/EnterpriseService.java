@@ -1,6 +1,6 @@
 package com.yx.service;
 
-import com.yx.dao.CrawlerDao;
+import com.yx.dao.InstrumentDao;
 import com.yx.model.Instruments;
 import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  * @author: yyb
  * @create: 2017/10/26.
  */
-public class CrawService {
+public class EnterpriseService {
     //下载页面
     public Document connect(String href) throws IOException {
         Document doc = Jsoup.connect(href)
@@ -253,11 +253,11 @@ public class CrawService {
     }
 
     public boolean insert(Instruments instruments) throws SQLException {
-        return  new CrawlerDao().insert(instruments);
+        return  new InstrumentDao().insert(instruments);
     }
 
     public boolean isExisted(String url) throws SQLException {
-        return  new CrawlerDao().isExisted(url);
+        return  new InstrumentDao().isExisted(url);
     }
 
     public void writeLog(String Instruments,String message,String href){

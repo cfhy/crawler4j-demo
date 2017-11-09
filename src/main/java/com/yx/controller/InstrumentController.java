@@ -1,12 +1,17 @@
 package com.yx.controller;
 
+import com.yx.crawler.InstrumentCrawler;
 import edu.uci.ics.crawler4j.crawler.CrawlConfig;
 import edu.uci.ics.crawler4j.crawler.CrawlController;
 import edu.uci.ics.crawler4j.fetcher.PageFetcher;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtConfig;
 import edu.uci.ics.crawler4j.robotstxt.RobotstxtServer;
 
-public class Controller {
+/**
+ * 抓取医疗器械数据
+ * 网站 http://ylqx.qgyyzs.net/zs/list_4_0_0_0.htm
+ */
+public class InstrumentController {
     public static void main(String[] args) throws Exception {
         String crawlStorageFolder = "D:/data/crawl/root";
         int numberOfCrawlers = 7;
@@ -42,6 +47,6 @@ public class Controller {
      * Start the crawl. This is a blocking operation, meaning that your code
      * will reach the line after this only when crawling is finished.
      */
-        controller.start(MyCrawler.class, numberOfCrawlers);
+        controller.start(InstrumentCrawler.class, numberOfCrawlers);
     }
 }

@@ -1,4 +1,13 @@
-package com.yx.controller;
+package com.yx.crawler;
+
+import com.yx.model.Instruments;
+import com.yx.service.EnterpriseService;
+import edu.uci.ics.crawler4j.crawler.Page;
+import edu.uci.ics.crawler4j.crawler.WebCrawler;
+import edu.uci.ics.crawler4j.url.WebURL;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -7,20 +16,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import com.yx.model.Instruments;
-import com.yx.service.CrawService;
-import edu.uci.ics.crawler4j.crawler.Page;
-import edu.uci.ics.crawler4j.crawler.WebCrawler;
-import edu.uci.ics.crawler4j.url.WebURL;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
-public class MyCrawler extends WebCrawler {
+public class EnterpriseCrawler extends WebCrawler {
 
     private final static Pattern FILTERS = Pattern.compile(".*(\\.(htm|html))$");
     private final static String PREFIX_URL_DETAIL = "http://ylqx.qgyyzs.net/business/zs";
-    CrawService crawService = new CrawService();
+    EnterpriseService crawService = new EnterpriseService();
     static List<String> list = null;
 
     static {
